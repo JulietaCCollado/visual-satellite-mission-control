@@ -1,0 +1,21 @@
+# Render blueprint — defines the backend web service so it deploys in one click.
+# Docs: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: vsmc-backend
+    runtime: python
+    region: oregon
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt && python -c "from skyfield.api import load; load.timescale(builtin=True)"
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      # Allow any *.vercel.app frontend (covers your prod URL plus preview deploys)
+      - key: VSMC_CORS_ORIGIN_REGEX
+        value: "https://.*\\.vercel\\.app"
+      # Match the regex for the frontend URL we'll deploy.
+      - key: VSMC_CORS_ORIGINS
+        value: "http://localhost:3000"
