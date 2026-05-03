@@ -18,4 +18,4 @@ services:
         value: "https://.*\\.vercel\\.app"
       # Match the regex for the frontend URL we'll deploy.
       - key: VSMC_CORS_ORIGINS
-        value: "http://localhost:3000"
+        value: '["http://localhost:3000"]'
