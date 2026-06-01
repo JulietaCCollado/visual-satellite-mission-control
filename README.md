@@ -2,8 +2,7 @@
 
 > A live, full-stack 3D satellite tracker. Pulls real orbital data from CelesTrak, propagates with SGP4, and renders ~100 spacecraft on a 3D Earth in your browser — updating every 3 seconds.
 
-🌐 **Live demo:** _Add your Vercel URL here after deploying_
-📖 **API docs:** _Add your Render URL + `/docs` here after deploying_
+🌐 **Live demo:** https://visual-satellite-mission-control.vercel.app/
 
 ![VSMC Screenshot](docs/screenshot.png)
 
